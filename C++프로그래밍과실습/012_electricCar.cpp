@@ -43,7 +43,6 @@ int main() {
             }
         if (now + km_per_kW > 300 && f3 == 0) {
             f3 = 1;
-            // if(battery_level <= 40){
             if (((distance-now) < 100 && battery_level - (distance-now)/km_per_kW <= 20) || ((distance-now) > 100 && battery_level - 100/km_per_kW <= 20)) {
                 std::cout << "Current battery level: " << battery_level << "%, " << "after traveling " << now << " km." << std::endl;
                 std::cout << "Battery at " << battery_level << "%, " << "stopping at Cheongju for charging." << std::endl;
