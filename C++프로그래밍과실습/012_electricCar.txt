@@ -1,0 +1,104 @@
+설명
+
+We are going from Busan to Seoul by electric car. 
+
+The battery capacity of the car we ride is 72.6kWh, and the car takes 5.6 km/kWh of electric consumption per hour.
+
+We assume that  the distance between Busan and Seoul is 420km. 
+
+It's calculated that we can not get to Seoul in one trip without additional charging the electric car. 
+
+So, we should make a plan to take a rest at a hightway rest area and charge up to 80% of its capacity.
+
+
+
+문제
+
+Plan a journey from Busan to Seoul in an electric car, focusing on efficient battery management and strategic planning of charging stops.
+
+
+
+Available Waypoints with Charging Stations: Gyeongsan (100 km), Gimcheon (200 km), Cheongju (300 km), Anseong (400 km).
+
+
+
+Tasks:
+
+Calculate and output the remaining battery percentage at regular intervals (every 10% decrement).
+Plan charging stops at waypoints in advance to avoid running the battery below a critical level (20%).
+Determine the optimal charging stops based on the initial battery charge, battery consumption rate, and the distances to the next available charging stations.
+
+
+Charging Strategy:
+
+The car should charge at a waypoint if it is anticipated that the battery level will fall below 20% before reaching the next charging station.
+The car should recharge up to a specified level (80%) at each charging stop.
+The choice of charging station and the decision to stop for a charge should be based on the remaining battery level, the distance already traveled, and the distance to the next charging station.
+The car should not backtrack; all movements should be forward along the route from Busan to Seoul.
+
+
+
+		
+
+
+
+<제약사항>
+
+1. const 키워드를 이용하여 constant variable 을 선언하고 사용하세요.
+
+2. 사용자 입력 받는 변수의 타입은 모두 double 을 사용하세요.
+
+
+
+
+
+<참고>
+
+// const double km_per_kW = capacity / 100 * efficiency;
+
+// double now = 0;
+
+// while (now < distance) {
+
+//
+
+//    battery_level--;
+
+//    now += km_per_kW;
+
+//    if (static_cast<int>(battery_level) % 10 == 0) 
+
+//
+
+   
+
+
+
+입력
+
+
+배터리용량    전비     충전량(%)     목적지까지거리
+
+72.6           5.6      100               420
+
+
+
+
+
+출력
+
+
+Current battery level: 100.00%, after traveling 0.00 km.
+Current battery level: 90.00%, after traveling 40.66 km.
+Current battery level: 80.00%, after traveling 81.31 km.
+Current battery level: 70.00%, after traveling 121.97 km.
+Current battery level: 60.00%, after traveling 162.62 km.
+Current battery level: 50.00%, after traveling 203.28 km.
+Current battery level: 40.00%, after traveling 243.94 km.
+Current battery level: 30.00%, after traveling 284.59 km.
+Current battery level: 27.00%, after traveling 296.79 km.
+Battery at 27.00%, stopping at Cheongju for charging.
+Current battery level: 80.00%, after traveling 300.00 km.
+Current battery level: 70.00%, after traveling 340.66 km.
+Current battery level: 60.00%, after traveling 381.31 km.
+Arrived in Seoul with 50.00% battery remaining.
