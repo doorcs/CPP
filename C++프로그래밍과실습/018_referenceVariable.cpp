@@ -2,10 +2,11 @@
 #include <string>
 using namespace std;
 
-int my_swap(int &m, int &n){
+void my_swap(int &m, int &n){
     int tmp = m;
     m = n;
     n = tmp;
+    return;
 }
 
 int main() {
