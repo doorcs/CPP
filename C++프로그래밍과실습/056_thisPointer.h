@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <cctype>
+#include <cctype> // isalnum()을 사용하기 위해 필요
 using namespace std;
 
 class StringSplitter{
