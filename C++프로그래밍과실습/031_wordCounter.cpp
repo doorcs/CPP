@@ -11,7 +11,7 @@ int main() {
     string in;
     while(cin >> in && in != "^"){
         in = regex_replace(in, regex("[.|,|:|;]"), "");
-        for_each(in.begin(), in.end(), [](auto& it){if (static_cast<int>(it) >= 65 && static_cast<int>(it) <= 91) it = static_cast<int>(it) + 32;}); // 소문자로 변환. 'A' = 65, 'a' = 97
+        for_each(in.begin(), in.end(), [](auto& it){if (static_cast<int>(it) >= 65 && static_cast<int>(it) <= 90) it = static_cast<int>(it) + 32;}); // 소문자로 변환. 'A' = 65, 'a' = 97
         auto search = words.find(in);
         if(search != words.end()) words[in]++;
         else words.insert(make_pair(in, 1));
@@ -27,7 +27,7 @@ int main() {
     }
     cout << "Find Word Frequencies" << endl;
     while(cin >> in && in != "QUIT"){
-        for_each(in.begin(), in.end(), [](auto& it){if (static_cast<int>(it) >= 65 && static_cast<int>(it) <= 91) it = static_cast<int>(it) + 32;});
+        for_each(in.begin(), in.end(), [](auto& it){if (static_cast<int>(it) >= 65 && static_cast<int>(it) <= 90) it = static_cast<int>(it) + 32;});
         auto search = words.find(in);
         if(search == words.end()) cout << in << ": 0" << endl;
         else cout << in << ": " << words[in] << endl;
