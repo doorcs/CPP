@@ -12,9 +12,7 @@ enum LogLevel {
 class Logger {
     // implement your code
 public:
-    Logger(int level){
-        logLevel=level;
-    }
+    Logger(int level): logLevel(level) { }
     ~Logger(){logLevel=1;}
     static void setLogLevel(int level);
     static void debug(const string&, const string&);
