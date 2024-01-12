@@ -1,0 +1,181 @@
+문제
+
+주어진 String 클래스 선언부를 참고하여 String 클래스를 구현하시오.
+단, default operators 중 생성자, 복사 생성자, 소멸자를 구현하시오.
+
+
+<참고>
+
+String.h, main.cpp 파일은 수정하지 마시오.
+String.cpp 에서는 기본 생성자, 생성자, 복사 생성자, empty(), size(), append() 함수를 구현하시오.
+주어진 main 의 test cases 가 정상적으로 동작하는지 확인하세요.
+
+// String.h
+
+#include <iostream>
+#include <algorithm>
+
+class String {
+public:
+    String() ;
+    explicit String(const char* s) ;
+    ~String() noexcept ;
+    String(const String& s) noexcept ;
+
+public:
+    const char* data() const;
+    bool empty() const;
+    size_t size() const;
+    String& append(const String& str);
+    String& append(const char* str);
+
+
+private:
+    static int count_;
+    char* data_;
+    size_t len_;
+};
+
+
+// main.cpp
+
+#include <iostream>
+#include <cassert>
+#include <cstring>
+#include "String.h"
+
+void test_case1();
+void test_case2();
+void test_case3();
+void test_case4();
+
+int main(){
+    std::cout <<  "\n\n" << "Testing the default constructor: " << "\n\n";
+    test_case1();
+
+    std::cout <<  "\n\n" <<  "Testing the constructor that takes a C-style string:" << "\n\n";
+    test_case2();
+
+    std::cout <<  "\n\n" << "Testing the copy constructor:" <<  "\n\n";
+    test_case3();
+
+    std::cout <<  "\n\n" << "Testing the append() function:" <<  "\n\n";
+    test_case4();
+}
+
+void test_case4() {
+    String s11("hello");
+    String s12("world");
+    s11.append(s12);
+    assert(!s11.empty());
+    assert(s11.size() == 10);
+    assert(strcmp(s11.data(), "helloworld") == 0);
+
+    String s13("");
+    String s14("test");
+    s13.append(s14);
+    assert(!s13.empty());
+    assert(s13.size() == 4);
+    assert(strcmp(s13.data(), "test") == 0);
+}
+
+void test_case3() {
+    String s3("hello");
+    String s4(s3);
+    assert(!s4.empty());
+    assert(s4.size() == 5);
+    assert(strcmp(s4.data(), "hello") == 0);
+
+    String s5("");
+    String s6(s5);
+    assert(s6.empty());
+    assert(s6.size() == 0);
+    assert(s6.data()[0] == '\0');
+}
+
+void test_case2() {
+    String s1("hello");
+    assert(!s1.empty());
+    assert(s1.size() == 5);
+    assert(strcmp(s1.data(), "hello") == 0);
+
+    String s2("");
+    assert(s2.empty());
+    assert(s2.size() == 0);
+    assert(s2.data()[0] == '\0');
+}
+
+void test_case1() {
+    String s;
+    assert(s.empty());
+    assert(s.size() == 0);
+    assert(s.data()[0] == '\0');
+}
+
+
+
+입력
+
+없음
+
+
+출력
+
+Testing the default constructor: 
+
+Default Constructor
+# of String object: 1
+Destructor
+# of String object: 0
+
+
+Testing the constructor that takes a C-style string:
+
+Constructor
+# of String object: 1
+Constructor
+# of String object: 2
+Destructor
+# of String object: 1
+Destructor
+# of String object: 0
+
+
+Testing the copy constructor:
+
+Constructor
+# of String object: 1
+Copy Constructor
+# of String object: 2
+Constructor
+# of String object: 3
+Copy Constructor
+# of String object: 4
+Destructor
+# of String object: 3
+Destructor
+# of String object: 2
+Destructor
+# of String object: 1
+Destructor
+# of String object: 0
+
+
+Testing the append() function:
+
+Constructor
+# of String object: 1
+Constructor
+# of String object: 2
+Constructor
+# of String object: 3
+Constructor
+# of String object: 4
+Destructor
+# of String object: 3
+Destructor
+# of String object: 2
+Destructor
+# of String object: 1
+Destructor
+# of String object: 0
