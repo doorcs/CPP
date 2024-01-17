@@ -12,7 +12,7 @@ class GV70: public Vehicle{
     string name;
     int speed;
 public:
-    GV70(): name("gv70"), speed(30){ }
+    GV70(): name("gv70"), speed(30){ } // 아무 인자도 받지 않는 기본 생성자도 초기화 리스트를 사용할 수 있다!!!!!!
 
     void accelerate(){
         cout << "The speed of the " << name << " has increased by " << speed << " km/h." << endl;
@@ -23,7 +23,7 @@ class Grandeur: public Vehicle{
     string name;
     int speed;
 public:
-    Grandeur(): name("grandeur"), speed(20){ }
+    Grandeur(): name("grandeur"), speed(20){ } // 아무 인자도 받지 않는 기본 생성자도 초기화 리스트를 사용할 수 있다!!!!!!
 
     void accelerate(){
         cout << "The speed of the " << name << " has increased by " << speed << " km/h." << endl;
@@ -34,7 +34,7 @@ class Carnibal: public Vehicle{
     string name;
     int speed;
 public:
-    Carnibal(): name("carnibal"), speed(10){ }
+    Carnibal(): name("carnibal"), speed(10){ } // 아무 인자도 받지 않는 기본 생성자도 초기화 리스트를 사용할 수 있다!!!!!!
 
     void accelerate(){
         cout << "The speed of the " << name << " has increased by " << speed << " km/h." << endl;
