@@ -7,6 +7,7 @@ int main() {
     str1.print("str1");
     str2.print("str2");
 }
+// for문, <cstring>헤더, strlen, strcpy, strcat 등등 사용 불가
 //
 // 출력:
 //
