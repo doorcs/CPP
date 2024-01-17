@@ -68,11 +68,11 @@ int main() {
     p.write_code();
     s.sell();
 
-    Employee* e1 = &m;
+    Employee* e1 = &m; // Base Class 형 포인터가 Derived Class를 가리키고 있는 상황
     Employee* e2 = &p;
     Employee* e3 = &s;
 
-    e1->print_report();
+    e1->print_report(); // virtual function을 사용하지 않으면 의도대로 동작하지 않는다!!
     e2->print_report();
     e3->print_report();
 }
