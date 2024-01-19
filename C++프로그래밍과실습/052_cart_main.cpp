@@ -1,3 +1,7 @@
+#include "052_cart_cart.h"
+#include "052_cart_checkout.h"
+#include "052_cart_item.h"
+
 int main() {
     Checkout checkout;
     Cart cart{&checkout};
