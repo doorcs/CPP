@@ -8,7 +8,7 @@ class Test{
     T* data;
 public:
     Test(): data(new T){
-        cout << setw(43) << "Constructor" << endl; // setw()는 포메팅해서 출력하려는 문자열 왼쪽에 써줘야한다!
+        cout << setw(43) << "Constructor" << endl; // setw()는 포매팅해서 출력하려는 문자열 왼쪽에 써줘야한다!
     }
     ~Test() noexcept{
         delete data;
