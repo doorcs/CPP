@@ -1,8 +1,7 @@
-// #include <cstddef> // redundant
+#include <cstddef>
 #include <iostream>
 #include <exception>
 #include <string>
-typedef unsigned long size_t;
 using namespace std;
 
 template <typename T>
