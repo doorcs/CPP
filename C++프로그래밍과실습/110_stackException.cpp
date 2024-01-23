@@ -1,6 +1,6 @@
 #include "110_stackException.h"
 
-////// 테스트케이스 1 출력: main.cpp:[라인번호]:Exception: Stack is empty
+////// 테스트케이스 1 출력: main.cpp:[라인번호]:Exception: Stack is empty 
 // int main() {
 //    Stack<char> stack1(1);
 //    stack1.push('a');
