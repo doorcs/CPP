@@ -1,0 +1,202 @@
+문제
+
+주어진 Stack 템플릿 클래스에 예외 처리를 추가하시오 // 템플릿 클래스가 아니라 클래스 템플릿...
+
+예외 타입은 StackException 클래스를 사용하시오
+
+
+
+제약조건
+
+실습 113 을 먼저 해결해야 합니다.
+Stack의 push, pop 멤버 함수에서 적절한 예외를 던지도록 구현하시오
+Stack의 복사생성자와 복사 대입 연산자는 삭제되어 사용할 수 없음
+Stack의 소멸자는 반드시 noexcept 표시를 하시오
+Stack의 생성자와 소멸자에서 RAII 를 준수하도록 하시오
+StackException 은 stdruntime_error 클래스를 상속받도록 하시오
+StackException의 소멸자는 noexcept 표시를 하시오
+main() 함수에서는 StackException 예외를 처리하는 핸들러를 정의하시오 
+Stack, StackException 클래스의 멤버 함수를 모두 구현하시오
+주어진 헤더 파일의 클래스 선언을 준수하여 멤버 함수를 구현하시오
+Stack.h 에서는 throw 만 하시오
+소스코드 명이나 라인 넘버를 출력하고 싶을 때는, gcc 컴파일러의 The standard predefined macros 를 참고하세요
+https://gcc.gnu.orgonlinedocscppStandard-Predefined-Macros.html
+
+
+
+
+
+Stack.h --------------------------------------
+
+#ifndef EXCEPTION_STACK_H
+
+#define EXCEPTION_STACK_H
+
+
+
+#include StackException.h
+
+#include iostream
+
+templatetypename T
+
+class Stack {
+
+public
+
+	       Stack(int sz) ;                    객체 초기화 및 필요한 자원을 획득하시오
+
+             ~Stack() noexcept ;             사용한 자원을 해제하시오
+
+              복사 생성자와 복사 대입 연산자를 삭제하시오
+
+		void push(T c) { s[top++] = c ; }    예외 발생 시 StackException 던지시오
+
+		T pop() { T r = s[--top]; return r ; } 예외 발생 시 StackException 던지시오
+
+		void print() const ;     스택의 모든 원소를 'n' 으로 구분하여 출력하시오
+
+private
+
+	int size = 0;   int top = 0;
+
+	T s = nullptr;
+
+} ;
+
+#endif EXCEPTION_STACK_H
+
+
+
+StackException.h --------------------------------------
+
+#ifndef EXCEPTION_STACKEXCEPTION_H
+
+#define EXCEPTION_STACKEXCEPTION_H
+
+#include stdexcept
+
+#include string
+
+#include sstream
+
+class StackException  public stdruntime_error {
+
+public
+
+    StackException(const stdstring& msg, const char file, size_t line)
+
+             stdruntime_error(msg), _msg{msg},  _file_name(file), _line(line) {
+
+        stdostringstream oss;
+
+        oss   file    line    Exception   msg  stdendl;
+
+        _msg = oss.str();
+
+    }
+
+    ~StackException() noexcept {}
+
+    const char what() const noexcept {
+
+        return _msg.c_str();
+
+    }
+
+
+
+private
+
+    stdstring _msg;
+
+    stdstring _file_name;
+
+    size_t _line = 0;
+
+};
+
+#endif EXCEPTION_STACKEXCEPTION_H
+
+
+
+
+
+입출력
+
+
+ main() 함수에서 StackException 예외를 처리하는 핸들러를 정의해서 예외 메시지를 출력해 보세요
+
+case 1 (입력 1일 때 실행되는 코드 예)
+
+int main() {
+
+    Stackchar stack(1);
+
+    stack.push('a');
+
+    stack.pop(); stack.pop();
+
+    stack.print();
+
+}
+
+== 출력 예 main.cpp[라인번호]Exception Stack is empty
+
+
+
+case 2
+
+int main() {
+
+    Stackchar stack (1);
+
+    stack.push('a');
+
+    stack.push('b');
+
+    stack.print();
+
+}
+
+== 출력 예 main.cpp[라인번호]Exception Stack is full!
+
+
+
+case 3
+
+int main() {
+
+    Stackint stack(1);
+
+    stack.push(1);     stack.pop();
+
+    stack.push(2);
+
+    stack.print();       2 출력됨
+
+    stack.pop();
+
+}
+
+== 출력 예 2
+
+
+
+case 4
+
+int main() {
+
+    Stackint stack(2);
+
+    stack.push(1); stack.push(2);
+
+    stack.pop();    stack.pop();
+
+    stack.push(3);
+
+    stack.print();     3 출력됨
+
+}
+
+== 출력 예 3
