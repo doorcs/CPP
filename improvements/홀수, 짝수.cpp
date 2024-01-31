@@ -1,8 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int main() {
-    // 입력받은 N이 홀수인지 짝수인지 판단하려고 함
+int main() { // 입력받은 N이 홀수인지 짝수인지 판단하려고 함
     int N;
     if(!(cin >> N) or N <= 0) return 0; // `입력값이 int형이 아닐 경우(cin이 false를 반환) || N이 0 이하일 경우` 예외 처리
 
