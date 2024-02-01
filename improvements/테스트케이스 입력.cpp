@@ -2,16 +2,16 @@
 using namespace std;
 
 int main() {
-    int rep;
-    cin >> rep;
+    int TC; // rep
+    cin >> TC;
 
     // 방법 1
-    for(int i=0; i<rep; i++){
+    for(int i=0; i<TC; i++){
       ; // do something
     }
 
     // 방법 2
-    while(rep--){
+    while(TC--){
       ; // do something
     }
 }
