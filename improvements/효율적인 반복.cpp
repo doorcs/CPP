@@ -21,7 +21,7 @@ int main() {
     cout << res1 << '\n'; // 7
 
     // 마찬가지로 변수와 함께 사용 가능
-    int res2 = std::max({a, b, c, d}); // 앞의 예시에서 선언 && cin으로 값 대입해둔 변수 `a`, `b`, `c`, `d` 사용
+    int res2 = max({a, b, c, d}); // 앞의 예시에서 선언 && cin으로 값 대입해둔 변수 `a`, `b`, `c`, `d` 사용
     cout << res2 << '\n';
 }
 
