@@ -20,6 +20,11 @@ int main() {
         if (a.second == b.second) return a.first < b.first; // second가 같을 경우 first의 오름차순으로 정렬
         else return a.second < b.second; // second가 다를 경우 second의 오름차순으로 정렬
     });
+    /*
+    sort(vpii.begin(), vpii.end(), [](const auto& a, const auto& b){
+        return (a.second == b.second) ? a.first < b.first : a.second < b.second;
+    }); 
+    */// 삼항(ternary) 연산자를 활용해 한줄로 작성할 수도 있지만...
     // 기본 자료형이 아니기 때문에 sort(vpii.begin(), vpii.end()); 처럼은 사용할 수 없다!
 
     for (const auto& it : vpii) cout << it.first << ' ' << it.second << '\n';
