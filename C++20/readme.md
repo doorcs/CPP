@@ -1,0 +1,2 @@
+- ranges 라이브러리의 적용범위 공부 && 정리하기. begin, end로 호출할 수 있는 accumulate는 ranges 라이브러리를 지원하지 않는다
+- std::ranges::views, std::ranges::views::filter 공부해보기. string_view 클래스도 같이 공부하기. 엄청 좋은 개념같다!
