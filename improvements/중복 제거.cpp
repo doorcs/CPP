@@ -7,7 +7,7 @@ int main() {
     std::vector<int> vi{3, 6, 6, 7, 9, 9, 8, 3, 6};
 
     std::ranges::sort(vi); // unique() 사용 전에는 반드시 컨테이너를 정렬해줘야 함!
-    auto [fr, rr] = std::ranges::unique(vi); // `std::ranges::unique()`는 `std::unique()`같은 작업을 수행한 다음 `std::ranges::subrange` 객체를 리턴함! `std::ranges::subrange`는 `.begin()`, `.end()`로 반환되는 이터레이터 쌍에 대한 래퍼(wrapper)!
+    auto [fr, rr] = std::ranges::unique(vi); // `std::ranges::unique()`는 `std::unique()`같은 작업을 수행한 다음 `std::ranges::subrange` 객체를 리턴함!
     vi.erase(fr, rr); // .erase()는 벡터 컨테이너의 메소드이기 때문에  `using namespace std;`가 없어도 `std::` prefix가 붙지 않는다.
     for (const auto& it : vi) std::cout << it << '\n';
 
@@ -28,7 +28,6 @@ int main() {
  *
  * 즉, 파라미터로 받은 컨테이너를 다시 ranges::begin(), ranges::end()의 파라미터로 사용해 처리함!!!
  */
-
 
 // `std::ranges::subrange`에 대해:
 /*
