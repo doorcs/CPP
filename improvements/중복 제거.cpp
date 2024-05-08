@@ -20,3 +20,20 @@ int main() {
     for (const auto& it : vi) std::cout << it << '\n';
  */
 }
+
+// 컨테이너를 파라미터로 받는 `std::ranges::` 네임스페이스의 알고리즘들에 대해:
+/*
+ * std::ranges::sort(CONTAINER); 이런 방식의 호출은 자동으로 아래 형태로 변환되어 처리된다:
+ * std::ranges::sort(ranges::begin(CONTAINER), ranges::end(CONTAINER));
+ *
+ * 즉, 파라미터로 받은 컨테이너를 다시 ranges::begin(), ranges::end()의 파라미터로 사용해 처리함!!!
+ */
+
+
+// `std::ranges::subrange`에 대해:
+/*
+ * https://en.cppreference.com/w/cpp/ranges/subrange
+ * The subrange class template combines together an iterator and a sentinel into a single view.
+
+    `std::ranges::subrange`는 `.begin()`, `.end()`, `.size()`, `.empty()` 등의 메소드들을 지원함!
+ */
