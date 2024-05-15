@@ -8,7 +8,7 @@ extern std::vector<int> vi; // 다른 소스 파일(헤더XX)에서 정의된 �
 bool isVectorEmpty(std::vector<int>& vec); // 다른 소스파일에서 정의된 함수를 `선언`
 
 // extern bool ret;
-// 지역변수는 extern 키워드로 가져올 수 없습니다!
+// 지역변수는 extern 키워드로 가져올 수 없음!
 
 int main() {
     for (auto it : vi) std::cout << it << ' '; // data.cpp에서 정의한 벡터를 사용
